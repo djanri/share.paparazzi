@@ -1,4 +1,4 @@
-# Snapdrop 
+# share.paparazzi.by - it's a fork of Snapdrop 
 
 [Snapdrop](https://snapdrop.net): local file sharing in your browser. Inspired by Apple's Airdrop.
 
