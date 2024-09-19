@@ -74,7 +74,7 @@ class PeerUI {
 
     html() {
         return `
-            <label class="column center" title="Click to send files or right click to send a text">
+            <label class="column center" title="Нажмите, чтобы загрузить фото">
                 <input type="file" multiple>
                 <x-icon shadow="1">
                     <svg class="icon"><use xlink:href="#"/></svg>
@@ -101,8 +101,7 @@ class PeerUI {
         el.innerHTML = this.html();
         el.ui = this;
         el.querySelector('svg use').setAttribute('xlink:href', this._icon());
-        el.querySelector('.name').textContent = this._displayName();
-        el.querySelector('.device-name').textContent = this._deviceName();
+        el.querySelector('.name').textContent = 'Нажмите, чтобы загрузить фото';
         this.$el = el;
         this.$progress = el.querySelector('.progress');
     }
