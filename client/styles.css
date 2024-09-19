@@ -3,7 +3,7 @@
 :root {
     --icon-size: 24px;
     --primary-color: #4285f4;
-    --peer-width: 120px;
+    --peer-width: 150px;
     --text-color: #333;
     --bg-color: #fafafa;
     --bg-color-secondary: #f1f3f4;
@@ -226,9 +226,7 @@ x-peer label {
 
 x-peer .name {
     width: var(--peer-width);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    word-break: break-word;
     text-align: center;
 }
 
