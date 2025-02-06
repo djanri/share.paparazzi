@@ -240,7 +240,8 @@ class ReceiveDialog extends Dialog {
         if (this._busy) return;
         this._busy = true;
         const file = this._filesQueue.shift();
-        this._displayFile(file);
+        // this._displayFile(file);
+        this._downloadFile(file);
     }
 
     _dequeueFile() {
@@ -255,12 +256,24 @@ class ReceiveDialog extends Dialog {
         }, 300);
     }
 
+    _downloadFile(file) {
+        const $a = this.$el.querySelector('#download');
+        const url = URL.createObjectURL(file.blob);
+        $a.href = url;
+        $a.download = file.name;
+        $a.click();
+    }
+
     _displayFile(file) {
         const $a = this.$el.querySelector('#download');
         const url = URL.createObjectURL(file.blob);
         $a.href = url;
         $a.download = file.name;
 
+        if(this._autoDownload()){
+            $a.click()
+            return
+        }
         if(file.mime.split('/')[0] === 'image'){
             console.log('the file is image');
             this.$el.querySelector('.preview').style.visibility = 'inherit';
@@ -296,6 +309,11 @@ class ReceiveDialog extends Dialog {
         this.$el.querySelector("#img-preview").src = "";
         super.hide();
         this._dequeueFile();
+    }
+
+
+    _autoDownload(){
+        return !this.$el.querySelector('#autoDownload').checked
     }
 }
 
