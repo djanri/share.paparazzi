@@ -261,10 +261,6 @@ class ReceiveDialog extends Dialog {
         $a.href = url;
         $a.download = file.name;
 
-        if(this._autoDownload()){
-            $a.click()
-            return
-        }
         if(file.mime.split('/')[0] === 'image'){
             console.log('the file is image');
             this.$el.querySelector('.preview').style.visibility = 'inherit';
@@ -300,11 +296,6 @@ class ReceiveDialog extends Dialog {
         this.$el.querySelector("#img-preview").src = "";
         super.hide();
         this._dequeueFile();
-    }
-
-
-    _autoDownload(){
-        return !this.$el.querySelector('#autoDownload').checked
     }
 }
 
